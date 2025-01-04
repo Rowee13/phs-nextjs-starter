@@ -12,6 +12,10 @@ export default {
                 background: 'var(--background)',
                 foreground: 'var(--foreground)',
             },
+            maxWidth: {
+                '8xl': '90rem', // 1440px
+                '9xl': '105rem', // 1680px
+            },
         },
     },
     plugins: [],
