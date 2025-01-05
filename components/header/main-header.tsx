@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+import DarkModeButton from '@/components/ui/buttons/dark-mode-btn'
+
 import { NAV_LINKS } from '@/constant/nav-links'
 
 const MainHeader = () => {
@@ -27,16 +29,7 @@ const MainHeader = () => {
                             </li>
                         ))}
                         <li>
-                            <button
-                                // onClick={() => {
-                                //     document.documentElement.classList.toggle(
-                                //         'dark'
-                                //     )
-                                // }}
-                                className='px-2 py-1 hover:underline'
-                            >
-                                Toggle Dark Mode
-                            </button>
+                            <DarkModeButton />
                         </li>
                     </ul>
                 </nav>

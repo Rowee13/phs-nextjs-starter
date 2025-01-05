@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
 import { Outfit, Rubik_Vinyl } from 'next/font/google'
 
+import { ThemeProvider } from '@/components/theme-provider'
+
 import { siteConfig } from '@/constant/config'
 
-import './globals.css'
+import '../styles/globals.css'
 
 const rubikVinyl = Rubik_Vinyl({
     variable: '--font-rubik-vinyl',
@@ -31,11 +33,18 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang='en'>
+        <html lang='en' suppressHydrationWarning={true}>
             <body
                 className={`${rubikVinyl.variable} ${outfit.variable} antialiased`}
             >
-                {children}
+                <ThemeProvider
+                    attribute='class'
+                    defaultTheme='light'
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    {children}
+                </ThemeProvider>
             </body>
         </html>
     )
