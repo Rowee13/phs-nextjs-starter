@@ -23,7 +23,7 @@ const MainHeader = () => {
                         {NAV_LINKS.map((link) => (
                             <li
                                 key={link.href}
-                                className={`px-2 py-1 ${pathname === link.href ? 'font-bold text-cyan-500' : 'hover:underline'} `}
+                                className={`px-2 py-1 ${pathname === link.href ? 'font-bold text-primary' : 'hover:underline'} `}
                             >
                                 <Link href={link.href}>{link.label}</Link>
                             </li>
