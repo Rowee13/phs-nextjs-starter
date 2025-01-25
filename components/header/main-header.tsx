@@ -12,7 +12,7 @@ const MainHeader = () => {
 
     return (
         <header>
-            <div className='flex flex-row justify-between items-center max-w-7xl mx-auto px-4 py-8'>
+            <div className='max-w-7xl mx-auto flex flex-row justify-between items-center px-4 py-8'>
                 <div>
                     <h1 className='text-2xl font-[family-name:var(--font-rubik-vinyl)]'>
                         PHS NextJS Starter
