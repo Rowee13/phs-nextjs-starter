@@ -5,9 +5,9 @@ import { FaGithub } from 'react-icons/fa'
 const MainFooter = () => {
     return (
         <footer>
-            <div className='max-w-7xl mx-auto px-4 py-8 border-t border-zinc-800'>
+            <div className='max-w-7xl mx-auto px-4 py-8 border-t border-foreground/25'>
                 <div className='flex flex-row justify-between items-center'>
-                    <p>PHS NextJS Starter - {new Date().getFullYear()}</p>
+                    <p>Parrow Horrizon Studio - {new Date().getFullYear()}</p>
                     <div>
                         <Link
                             href='https://github.com/Rowee13/phs-nextjs-starter/tree/master'
