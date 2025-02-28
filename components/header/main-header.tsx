@@ -14,9 +14,12 @@ const MainHeader = () => {
         <header>
             <div className='max-w-7xl mx-auto flex flex-row justify-between items-center px-4 py-8 z-50'>
                 <div>
-                    <h1 className='text-3xl font-[family-name:var(--font-bebas-neue)]'>
+                    <Link
+                        href='/'
+                        className='text-3xl font-[family-name:var(--font-bebas-neue)] font-bold'
+                    >
                         Parrow Horrizon Studio
-                    </h1>
+                    </Link>
                 </div>
                 <nav>
                     <ul className='flex flex-row space-x-6'>
