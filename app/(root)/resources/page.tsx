@@ -1,3 +1,10 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Resources',
+    description: 'Resources Collections',
+}
+
 const BlocksPage = () => {
     return (
         <section>
