@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 
+import { ModalProvider } from '@/components/ui/animated-modal'
+
 import ComponentsSection from '@/components/sections/components-sections'
 
 export const metadata: Metadata = {
@@ -15,7 +17,9 @@ const ComponentsPage = () => {
                     Components
                 </h1>
 
-                <ComponentsSection />
+                <ModalProvider>
+                    <ComponentsSection />
+                </ModalProvider>
             </div>
         </section>
     )
