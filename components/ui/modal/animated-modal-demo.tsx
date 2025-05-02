@@ -118,7 +118,10 @@ export function AnimatedModalDemo() {
                         >
                             Cancel
                         </button>
-                        <button className='bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28'>
+                        <button
+                            onClick={() => setOpen(!open)}
+                            className='bg-black text-white dark:bg-white dark:text-black text-sm px-2 py-1 rounded-md border border-black w-28'
+                        >
                             Book Now
                         </button>
                     </ModalFooter>

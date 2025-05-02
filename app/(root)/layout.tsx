@@ -7,7 +7,7 @@ export default function HomeLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className='min-h-screen h-screen overflow-auto flex flex-col font-[family-name:var(--font-outfit)]'>
+        <div className='min-h-screen flex flex-col font-[family-name:var(--font-outfit)]'>
             <MainHeader />
             <main className='flex-grow'>{children}</main>
             <MainFooter />
