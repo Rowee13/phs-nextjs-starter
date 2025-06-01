@@ -10,9 +10,9 @@ media_folder: 'public/uploads'
 public_folder: '/uploads'
 
 # Site settings
-site_url: https://architechrowee.com
-display_url: https://architechrowee.com
-logo_url: https://architechrowee.com/logo.png
+site_url: https://cms-decap-next-blog.netlify.app
+display_url: https://cms-decap-next-blog.netlify.app
+logo_url: https://cms-decap-next-blog.netlify.app/logo.png
 
 # Editorial workflow (optional)
 publish_mode: editorial_workflow

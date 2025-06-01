@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
@@ -133,12 +134,12 @@ export default function AdminPage() {
                         <p className='text-gray-600'>
                             Loading Content Management System...
                         </p>
-                        <a
+                        <Link
                             href='/'
                             className='inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors'
                         >
                             ← Back to Homepage
-                        </a>
+                        </Link>
                     </div>
                 </div>
             )}
