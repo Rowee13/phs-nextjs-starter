@@ -4,43 +4,18 @@ import Link from 'next/link'
 import Script from 'next/script'
 import { useEffect, useState } from 'react'
 
-interface NetlifyUser {
-    id: string
-    email: string
-    user_metadata?: Record<string, unknown>
-}
-
-interface NetlifyIdentity {
-    on: (event: string, callback: (user: NetlifyUser | null) => void) => void
-    init: () => void
-}
-
 interface DecapCMS {
     init: (config?: Record<string, unknown>) => void
 }
 
 declare global {
     interface Window {
-        netlifyIdentity: NetlifyIdentity
         CMS: DecapCMS
     }
 }
 
 export default function AdminPage() {
     const [cmsLoaded, setCmsLoaded] = useState(false)
-
-    useEffect(() => {
-        // Initialize Netlify Identity when component mounts
-        if (typeof window !== 'undefined' && window.netlifyIdentity) {
-            window.netlifyIdentity.on('init', (user: NetlifyUser | null) => {
-                if (!user) {
-                    window.netlifyIdentity.on('login', () => {
-                        document.location.href = '/admin/'
-                    })
-                }
-            })
-        }
-    }, [])
 
     useEffect(() => {
         // Add custom styles and navigation when CMS loads
@@ -110,18 +85,14 @@ export default function AdminPage() {
 
     return (
         <>
-            {/* Netlify Identity Widget */}
-            <Script
-                src='https://identity.netlify.com/v1/netlify-identity-widget.js'
-                strategy='beforeInteractive'
-            />
-
-            {/* Decap CMS */}
+            {/* Decap CMS with DecapBridge Authentication */}
             <Script
                 src='https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js'
                 strategy='afterInteractive'
                 onLoad={() => {
-                    console.log('Decap CMS loaded')
+                    console.log(
+                        'Decap CMS loaded with DecapBridge authentication'
+                    )
                     setCmsLoaded(true)
                 }}
             />
@@ -133,6 +104,9 @@ export default function AdminPage() {
                         <div className='animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4'></div>
                         <p className='text-gray-600'>
                             Loading Content Management System...
+                        </p>
+                        <p className='text-sm text-gray-500 mt-2'>
+                            Powered by DecapBridge Authentication
                         </p>
                         <Link
                             href='/'
