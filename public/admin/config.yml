@@ -1,0 +1,72 @@
+backend:
+    name: git-gateway
+    branch: main # Branch to update (optional; defaults to master)
+
+# Enable local backend for development
+local_backend: true
+
+# Media storage
+media_folder: 'public/uploads'
+public_folder: '/uploads'
+
+# Site settings
+site_url: https://architechrowee.com
+display_url: https://architechrowee.com
+logo_url: https://architechrowee.com/logo.png
+
+# Editorial workflow (optional)
+publish_mode: editorial_workflow
+
+# Show preview links
+show_preview_links: true
+
+# Collections define the structure for different content types
+collections:
+    - name: 'blog'
+      label: 'Blog Posts'
+      folder: 'content/posts'
+      create: true
+      slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+      preview_path: 'blog/{{slug}}'
+      fields:
+          - {
+                label: 'Layout',
+                name: 'layout',
+                widget: 'hidden',
+                default: 'blog',
+            }
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Publish Date', name: 'date', widget: 'datetime' }
+          - {
+                label: 'Featured Image',
+                name: 'thumbnail',
+                widget: 'image',
+                required: false,
+            }
+          - { label: 'Description', name: 'description', widget: 'text' }
+          - {
+                label: 'Author',
+                name: 'author',
+                widget: 'string',
+                default: 'Admin',
+            }
+          - { label: 'Tags', name: 'tags', widget: 'list', default: ['blog'] }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+    - name: 'pages'
+      label: 'Pages'
+      files:
+          - label: 'About'
+            name: 'about'
+            file: 'content/pages/about.md'
+            preview_path: 'about'
+            fields:
+                - { label: 'Title', name: 'title', widget: 'string' }
+                - { label: 'Body', name: 'body', widget: 'markdown' }
+          - label: 'Contact'
+            name: 'contact'
+            file: 'content/pages/contact.md'
+            preview_path: 'contact'
+            fields:
+                - { label: 'Title', name: 'title', widget: 'string' }
+                - { label: 'Body', name: 'body', widget: 'markdown' }

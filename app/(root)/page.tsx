@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Home() {
     return (
         <section className='flex-grow'>
@@ -12,8 +14,25 @@ export default function Home() {
                         </h1>
                         <p className='mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8'>
                             A starter project for PHS using NextJS, TailwindCSS,
-                            and TypeScript.
+                            TypeScript, and Decap CMS for content management.
                         </p>
+                        <div className='mt-10 flex items-center justify-center gap-x-6'>
+                            <Link
+                                href='/admin'
+                                className='rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+                            >
+                                Access CMS Admin
+                            </Link>
+                            <a
+                                href='https://decapcms.org/docs/'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                className='text-sm font-semibold text-foreground hover:text-primary'
+                            >
+                                Learn about Decap CMS{' '}
+                                <span aria-hidden='true'>→</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

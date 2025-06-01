@@ -12,7 +12,11 @@ const nextConfig: NextConfig = {
                 hostname: 'images.unsplash.com',
             },
         ],
+        unoptimized: true, // Required for static export
     },
+    output: 'export',
+    trailingSlash: true,
+    distDir: 'out',
 }
 
 export default nextConfig

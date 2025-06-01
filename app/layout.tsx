@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Outfit } from 'next/font/google'
-
-import { ThemeProvider } from '@/components/theme-provider'
+import Script from 'next/script'
 
 import { siteConfig } from '@/constant/config'
 
@@ -37,14 +36,31 @@ export default function RootLayout({
             <body
                 className={`${bebasNeue.variable} ${outfit.variable} antialiased`}
             >
-                <ThemeProvider
-                    attribute='class'
-                    defaultTheme='light'
-                    enableSystem
-                    disableTransitionOnChange
+                {children}
+
+                {/* Netlify Identity Widget */}
+                <Script
+                    src='https://identity.netlify.com/v1/netlify-identity-widget.js'
+                    strategy='beforeInteractive'
+                />
+
+                {/* Netlify Identity redirect handling */}
+                <Script
+                    id='netlify-identity-redirect'
+                    strategy='afterInteractive'
                 >
-                    {children}
-                </ThemeProvider>
+                    {`
+                        if (window.netlifyIdentity) {
+                            window.netlifyIdentity.on("init", user => {
+                                if (!user) {
+                                    window.netlifyIdentity.on("login", () => {
+                                        document.location.href = "/admin/";
+                                    });
+                                }
+                            });
+                        }
+                    `}
+                </Script>
             </body>
         </html>
     )
