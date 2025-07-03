@@ -26,7 +26,7 @@ const DarkModeButton = () => {
                     onClick={() => setTheme('dark')}
                     className=''
                 >
-                    <SunIcon className='w-6 h-6 text-zinc-900 dark:text-zinc-100' />
+                    <SunIcon className='w-6 h-6 text-foreground' />
                 </Button>
             ) : (
                 <Button
@@ -35,7 +35,7 @@ const DarkModeButton = () => {
                     onClick={() => setTheme('light')}
                     className=''
                 >
-                    <MoonIcon className='w-6 h-6 text-zinc-900 dark:text-zinc-100' />
+                    <MoonIcon className='w-6 h-6 text-foreground' />
                 </Button>
             )}
         </>

@@ -11,7 +11,7 @@ const MainHeader = () => {
     const pathname = usePathname()
 
     return (
-        <header className='sticky top-0 bg-background/90 backdrop-blur-sm z-10'>
+        <header className='sticky top-0 bg-background/90 backdrop-blur-xs z-10'>
             <div className='max-w-7xl mx-auto flex flex-row justify-between items-center px-4 py-8 z-50'>
                 <div>
                     <Link
