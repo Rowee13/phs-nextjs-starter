@@ -16,7 +16,7 @@ const MainHeader = () => {
                 <div>
                     <Link
                         href='/'
-                        className='text-3xl font-[family-name:var(--font-bebas-neue)] font-bold'
+                        className='text-3xl font-(family-name:--font-bebas-neue) font-bold'
                     >
                         Parrow Horrizon Studio
                     </Link>
