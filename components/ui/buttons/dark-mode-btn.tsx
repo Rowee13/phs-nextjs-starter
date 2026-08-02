@@ -1,44 +1,27 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-
 import { MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@/components/ui/button'
 
+// The icon swap rides on the `.dark` class next-themes sets on <html> before
+// paint, so there is no mount gate and nothing to hydrate-mismatch.
 const DarkModeButton = () => {
-    const { theme, setTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
-
-    useEffect(() => {
-        setMounted(true)
-    }, [])
-
-    if (!mounted) return null
+    const { resolvedTheme, setTheme } = useTheme()
 
     return (
-        <>
-            {theme === 'light' ? (
-                <Button
-                    variant='ghost'
-                    size='icon'
-                    onClick={() => setTheme('dark')}
-                    className=''
-                >
-                    <SunIcon className='w-6 h-6 text-foreground' />
-                </Button>
-            ) : (
-                <Button
-                    variant='ghost'
-                    size='icon'
-                    onClick={() => setTheme('light')}
-                    className=''
-                >
-                    <MoonIcon className='w-6 h-6 text-foreground' />
-                </Button>
-            )}
-        </>
+        <Button
+            variant='ghost'
+            size='icon'
+            aria-label='Toggle theme'
+            onClick={() =>
+                setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+            }
+        >
+            <SunIcon className='w-6 h-6 text-foreground dark:hidden' />
+            <MoonIcon className='hidden w-6 h-6 text-foreground dark:block' />
+        </Button>
     )
 }
 
